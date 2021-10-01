@@ -7,6 +7,8 @@ COPY *.go .
 RUN CGO_ENABLED=0 go build -o zjchatserver .
 
 FROM alpine:3.13.6
-COPY --from=build /workspace/zjchatserver /usr/local/bin/zjchatserver
+COPY --from=build /workspace/zjchatserver /zjchatserver
+WORKDIR /
 COPY zjunx.cfg /etc/zjunx/zjunx.cfg
-ENTRYPOINT ["/usr/local/bin/zjchatserver"]
+COPY ssl/ /ssl/
+ENTRYPOINT ["/zjchatserver"]
