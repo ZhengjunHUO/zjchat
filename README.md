@@ -12,5 +12,5 @@ $ docker run -d -p 8080:8080 -e TZ='Europe/Paris' [-v <PATH/TO/SSL/>:/ssl/] --na
 
 # Run the client. Duplicate the chat.go file, change
 # the name and run a second client and it's ok to chat
-$ go run client/chat.go
+$ go run client/chat_tls.go
 ```
