@@ -7,6 +7,7 @@ COPY *.go .
 RUN CGO_ENABLED=0 go build -o zjchatserver .
 
 FROM alpine:3.13.6
+LABEL maintainer="Zhengjun HUO"
 COPY --from=build /workspace/zjchatserver /zjchatserver
 WORKDIR /
 COPY zjunx.cfg /etc/zjunx/zjunx.cfg
