@@ -46,7 +46,7 @@ func main() {
 	defer conn.Close()
 
 	blk := encoding.BlockInit()
-	
+
 	req, err := blk.Marshalling(encoding.ContentInit(encoding.ZContentType(1), []byte(username)))
 	if err != nil {
 		log.Fatalln("Marshalling error: ", err)
